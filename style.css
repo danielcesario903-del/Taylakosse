@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #1B0036, #4B0082, #7B2CBF, #9D4EDD);
+  background-size: 300% 300%;
+  animation: fundoAnimado 10s infinite alternate;
+  overflow: hidden;
+}
+
+/* animação do fundo roxo */
+@keyframes fundoAnimado {
+  0% {background-position: 0% 50%;}
+  100% {background-position: 100% 50%;}
+}
+
+/* estrelas */
+.stars::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(white 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.2;
+  animation: moveStars 60s linear infinite;
+}
+
+@keyframes moveStars {
+  from {transform: translateY(0);}
+  to {transform: translateY(-100px);}
+}
+
+.container {
+  text-align: center;
+}
+
+/* envelope */
+.envelope {
+  width: 220px;
+  height: 160px;
+  background: url("img/carta.png") center/cover;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+/* responsivo */
+@media (max-width: 600px) {
+  .envelope {
+    width: 160px;
+    height: 120px;
+  }
+  .pagina-carta {
+  background: linear-gradient(135deg, #2b004d, #6a0dad);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* folha estilo papel */
+.folha {
+  width: 90%;
+  max-width: 600px;
+  height: 80vh;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto;
+
+  /* linhas tipo caderno */
+  background-image: repeating-linear-gradient(
+    white,
+    white 28px,
+    #ddd 29px
+  );
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  font-family: "Georgia", serif;
+}
+
+.folha h2 {
+  text-align: center;
+}
+
+.folha button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: #6a0dad;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.folha button:hover {
+  background: #4b0082;
+}
+
+/* responsivo */
+@media (max-width: 600px) {
+  .folha {
+    height: 85vh;
+    font-size: 14px;
+  }
+}
+}
